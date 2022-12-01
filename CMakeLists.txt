@@ -4,7 +4,10 @@
 	project(jamesmulator VERSION 0.1 DESCRIPTION "A discord bot")
 	 
 	# Add DPP as dependency
-	add_subdirectory(libs/DPP)
+	add_subdirectory(
+        libs/DPP
+        libs/json
+    )
 	# You can also add any other libs you want to use
 	 
 	# Create an executable
@@ -16,12 +19,14 @@
 	# Linking libraries
 	target_link_libraries(${PROJECT_NAME}
 	    dpp
+        json
 	    # Add any other libs you want to use here
 	)
 	 
 	# Specify includes
 	target_include_directories(${PROJECT_NAME} PRIVATE
 	    libs/DPP/include
+        libs/jsoncpp/include
 	    # Remember to add the include directories of any other libraries too
 	)
 	 
