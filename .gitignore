@@ -1,5 +1,6 @@
 .vscode/
 src/token.txt
+src/bot.cpp
 jamesmulator
 build
 data/birthdays.json
