@@ -8,11 +8,11 @@
 #include <functional>
 #include <dpp/dpp.h>
 
-using cmd_func = std::function<void (dpp::cluster&, dpp::slashcommand_t&)>;
+using cmd_func = std::function<void (dpp::cluster&, const dpp::slashcommand_t&)>;
 
 // command info structure for definition
 
-struct cmd_def {
+struct cmdDef {
 
 std::string desc; // command description
 
