@@ -13,6 +13,7 @@
 	# Create an executable
 	add_executable(${PROJECT_NAME}
 	    src/main.cpp
+		src/cmd/slashCmds.cpp
 	    # your other files...
 	)
 	 

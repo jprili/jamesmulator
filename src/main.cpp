@@ -34,6 +34,8 @@ int main() {
     Bot botInfo; // Bot information.
     dpp::cluster bot(botInfo.getToken());
 
+    bot.on_log(dpp::utility::cout_logger()); // enable live logging
+
     // BEGIN bot logic.
     bot.on_ready([&bot](const dpp::ready_t& event) {
         bot.set_presence(dpp::presence(dpp::ps_online, dpp::at_game, "with balls"));

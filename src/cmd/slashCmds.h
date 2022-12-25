@@ -5,7 +5,10 @@
 
     #pragma once
 
+    #include <fstream>
+
     #include <dpp/dpp.h>
+    #include <dpp/nlohmann/json.hpp>
 
     void ping(dpp::cluster& bot, const dpp::slashcommand_t& event);
 

@@ -6,6 +6,12 @@
 
 #include "slashCmds.h"
 
+using json = nlohmann::json;
+
+std::fstream file("data/jokes.json");
+json jJokes = json::parse(file);
+std::vector<std::string> jokes = jJokes["jokes"].get<std::vector<std::string>>();
+
 void ping(dpp::cluster& bot, const dpp::slashcommand_t& event) {
     // initialise values to send
     const double wsPing = bot.get_shard(0)->websocket_ping;
@@ -18,5 +24,7 @@ void ping(dpp::cluster& bot, const dpp::slashcommand_t& event) {
 }
 
 void joke(dpp::cluster& bot, const dpp::slashcommand_t& event) {
-    event.reply("joke called!");
+    // TODO: randomiser, json reader
+    int randomIndex = rand() % jokes.size();
+    event.reply(jokes[randomIndex]);
 }
