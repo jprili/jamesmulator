@@ -8,4 +8,4 @@ Currently supports:
 - `/joke`: tells a random joke from the joke database.
 
 Plans for addition:
-- none so far
+- implementing a birthday reminder for people's birthdays in the server.
