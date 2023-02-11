@@ -4,4 +4,5 @@ src/bot.cpp
 jamesmulator
 build
 data/bdays.json
+data/jokes.json
 libs/
