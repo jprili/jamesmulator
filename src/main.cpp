@@ -31,10 +31,10 @@ std::map<std::string, cmdDef> cmds
 };
 
 int main() {
-    Bot botInfo; // Bot information.
+    Bot botInfo;                                                // Bot information.
     dpp::cluster bot(botInfo.getToken());
 
-    bot.on_log(dpp::utility::cout_logger()); // enable live logging
+    bot.on_log(dpp::utility::cout_logger());                    // enable live logging
 
     // BEGIN bot logic.
     bot.on_ready([&bot](const dpp::ready_t& event) {
@@ -46,17 +46,17 @@ int main() {
             for (auto& definition : cmds) {
                 dpp::slashcommand cmd;
 
-                cmd.set_name(definition.first) // first is key, second is value
+                cmd.set_name(definition.first)                  // first is key, second is value
                    .set_description(definition.second.desc)
                    .set_application_id(bot.me.id);
 
-                cmd.options = definition.second.params; // would add options if params is
-                                                        // not empty.
+                cmd.options = definition.second.params;         // would add options if params is
+                                                                // not empty.
 
-                slashCmds.push_back(cmd); // add to dpp::slashcommand vector.
+                slashCmds.push_back(cmd);                       // add to dpp::slashcommand vector.
             }
 
-            bot.global_bulk_command_create(slashCmds); // compile bulk commands.
+            bot.global_bulk_command_create(slashCmds);          // compile bulk commands.
         }
     });
 
