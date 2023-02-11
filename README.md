@@ -9,3 +9,4 @@ Currently supports:
 
 Plans for addition:
 - implementing a birthday reminder for people's birthdays in the server.
+- music bot
