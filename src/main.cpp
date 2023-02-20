@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <ctime>
 
 // external import
 #include <dpp/dpp.h>
@@ -30,13 +31,25 @@ std::map<std::string, cmdDef> cmds
     }
 };
 
+int* getDateTime() {
+    int dateNow[2];                              // MON, DAY
+
+    std::time_t currTime = std::time(0);
+    std::tm* localTime = localtime(&currTime);
+
+    dateNow[0] = localTime->tm_mon;
+    dateNow[1] = localTime->tm_mday;
+
+    return dateNow;
+};
+
 int main() {
     Bot botInfo;                                                // Bot information.
     dpp::cluster bot(botInfo.getToken());
 
     bot.on_log(dpp::utility::cout_logger());                    // enable live logging
 
-    // BEGIN bot logic.
+    // begin bot logic.
     bot.on_ready([&bot](const dpp::ready_t& event) {
         bot.set_presence(dpp::presence(dpp::ps_online, dpp::at_game, "with balls"));
 
@@ -58,6 +71,7 @@ int main() {
 
             bot.global_bulk_command_create(slashCmds);          // compile bulk commands.
         }
+
     });
 
     bot.on_slashcommand([&bot](const dpp::slashcommand_t& event) {
@@ -67,10 +81,9 @@ int main() {
         if (cmdVal != cmds.end()) {
             cmdVal->second.func(bot, event);
         }
-
     });
 
-
+    // start the bot
     bot.start(dpp::st_wait);
     return 0;
 }
