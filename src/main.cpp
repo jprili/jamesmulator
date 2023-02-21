@@ -11,6 +11,7 @@
 #include <ctime>
 
 // external import
+#include <dispatcher.h>
 #include <dpp/dpp.h>
 #include <dpp/nlohmann/json.hpp>
 
@@ -61,8 +62,9 @@ int main() {
             bot.global_bulk_command_create(slashCmds);          // compile bulk commands.
                                                                 // update Date
         }
-
     });
+
+    bot.thread_create()
 
     bot.on_slashcommand([&bot](const dpp::slashcommand_t& event) {
         const dpp::command_interaction cmdData = event.command.get_command_interaction();

@@ -11,7 +11,7 @@ using json = nlohmann::json;
  *         containing [day, month]
  */
 int* getCurrDate() {
-    static int dateNow[2];                              // MON, DAY
+    static int dateNow[2];
 
     std::time_t currTime  = std::time(0);
     std::tm*    localTime = localtime(&currTime);
@@ -38,7 +38,6 @@ std::vector<std::string> getCelebrants(int* birthDate) {
 
     // iterate through json object
     for (auto& e : jBirths.items()) {
-        
         if (e.value()["mon"] == mon && e.value()["day"] == day) {
             celebrants.push_back(e.key());
         };
@@ -46,7 +45,3 @@ std::vector<std::string> getCelebrants(int* birthDate) {
 
     return celebrants;
 }
-
-void greetCelebrants() {
-
-};
