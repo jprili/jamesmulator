@@ -15,6 +15,7 @@
 #include <dpp/nlohmann/json.hpp>
 
 // source import
+#include "helpers.cpp"
 #include "bot.cpp"
 #include "cmd/handle.h"
 #include "cmd/slashCmds.h"
@@ -29,18 +30,6 @@ std::map<std::string, cmdDef> cmds
     {
         "joke", {"Tells you a joke.", joke}
     }
-};
-
-int* getDateTime() {
-    int dateNow[2];                              // MON, DAY
-
-    std::time_t currTime = std::time(0);
-    std::tm* localTime = localtime(&currTime);
-
-    dateNow[0] = localTime->tm_mon;
-    dateNow[1] = localTime->tm_mday;
-
-    return dateNow;
 };
 
 int main() {
@@ -70,6 +59,7 @@ int main() {
             }
 
             bot.global_bulk_command_create(slashCmds);          // compile bulk commands.
+                                                                // update Date
         }
 
     });
