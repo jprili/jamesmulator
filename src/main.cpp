@@ -62,9 +62,9 @@ int main() {
             bot.global_bulk_command_create(slashCmds);          // compile bulk commands.
                                                                 // update Date
         }
-    });
 
-    bot.thread_create()
+        // TODO: add birthday greeting logic here
+    });
 
     bot.on_slashcommand([&bot](const dpp::slashcommand_t& event) {
         const dpp::command_interaction cmdData = event.command.get_command_interaction();
