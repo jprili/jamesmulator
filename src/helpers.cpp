@@ -1,5 +1,5 @@
 // external import
-#include <dpp/nlohmann/json.hpp>
+#include <nlohmann/json.hpp>
 #include <fstream>
 
 using json = nlohmann::json;

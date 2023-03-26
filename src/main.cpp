@@ -12,7 +12,8 @@
 
 // external import
 #include <dpp/dpp.h>
-#include <dpp/nlohmann/json.hpp>
+#include <nlohmann/json.hpp>
+#include <user.h>
 
 // source import
 #include "helpers.cpp"
