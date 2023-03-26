@@ -26,7 +26,7 @@ int* getCurrDate() {
  * Gets the celebrants from the json file
  * 
  * @param  birthDate the birth date of the celebrants
- * @return a vector of celebrants
+ * @return a vector of celebrants' userids
 */
 std::vector<std::string> getCelebrants(int* birthDate) {
     std::vector<std::string> celebrants;
@@ -48,5 +48,8 @@ std::vector<std::string> getCelebrants(int* birthDate) {
 }
 
 void greetCelebrants() {
-
+    std::vector<std::string> celebrants = getCelebrants(getCurrDate());
+    if (!celebrants.empty()) {
+        // greet celebrants. maybe bot code instead of helpers?
+    } 
 };
