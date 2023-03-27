@@ -13,11 +13,10 @@
 // external import
 #include <dpp/dpp.h>
 #include <nlohmann/json.hpp>
-#include <user.h>
+#include <dpp/user.h>
 
 // source import
-#include "helpers.cpp"
-#include "bot.cpp"
+#include "bot.hpp"
 #include "cmd/handle.h"
 #include "cmd/slashCmds.h"
 
@@ -34,8 +33,8 @@ std::map<std::string, cmdDef> cmds
 };
 
 int main() {
-    Bot botInfo;                                                // Bot information.
-    dpp::cluster bot(botInfo.getToken());
+    Bot myBot;                                                  // Bot information.
+    dpp::cluster bot(myBot.getToken());
 
     bot.on_log(dpp::utility::cout_logger());                    // enable live logging
 
